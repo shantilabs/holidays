@@ -1,3 +1,5 @@
+Красные дни календаря с учётом российских реалий.
+
 ```
 from holidays import is_holiday
 
