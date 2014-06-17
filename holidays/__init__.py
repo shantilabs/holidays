@@ -3,6 +3,7 @@ import os
 
 
 ONE_DAY = datetime.timedelta(days=1)
+ONE_WEEK = datetime.timedelta(7)
 
 
 def get_workday(dt, country_code=None):
@@ -13,6 +14,16 @@ def get_workday(dt, country_code=None):
     while is_holiday(dt, country_code):
         dt += ONE_DAY
     return dt
+
+
+def get_monday(dt):
+    while dt.isoweekday() != 1:
+        dt -= ONE_DAY
+    return dt
+
+
+def get_week_number(dt):
+    return int(dt.strftime('%W'))
 
 
 def is_holiday(dt, country_code=None):
