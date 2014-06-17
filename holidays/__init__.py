@@ -1,7 +1,18 @@
 import datetime
 import os
 
+
 ONE_DAY = datetime.timedelta(days=1)
+
+
+def get_workday(dt, country_code=None):
+    """
+    >>> get_workday(datetime.date(2014, 1, 1), 'ru')
+    datetime.date(2014, 1, 8)
+    """
+    while is_holiday(dt, country_code):
+        dt += ONE_DAY
+    return dt
 
 
 def is_holiday(dt, country_code=None):
