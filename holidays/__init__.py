@@ -76,6 +76,7 @@ def iter_year(year):
 
 holiday_char = 'x'
 workday_char = '.'
+valid_chars = (holiday_char, workday_char)
 
 _cache = {}
 _datadir = os.path.join(os.path.realpath(os.path.dirname(__file__)), 'data')
@@ -87,21 +88,11 @@ def _read_data(country_code, year):
         country_code,
         year,
     )
-    if not os.path.exists(path):
-        return None
-    result = []
-    for line in open(path):
-        line = line.strip()
-        if line.startswith('#'):
-            continue
-        for char in line:
-            if char is holiday_char:
-                result.append(True)
-            elif char is workday_char:
-                result.append(False)
-            else:
-                assert False, char
-    return result
+    return [
+        char == holiday_char
+        for char in open(path).read()
+        if char in valid_chars
+    ] if os.path.exists(path) else None
 
 
 def main():
