@@ -1,0 +1,19 @@
+{
+    "holidays": [
+        {"month": 1,  "day": 1},
+        {"month": 1,  "dow": 1, "num": 3},
+        {"month": 1,  "day": 20},
+        {"month": 2,  "dow": 1, "num": 3},
+        {"month": 3,  "dow": 1, "num": -1},
+        {"month": 7,  "day": 4},
+        {"month": 9,  "dow": 1, "num": 1},
+        {"month": 10, "dow": 1, "num": 1},
+        {"month": 11, "day": 11},
+        {"month": 11, "dow": 4, "num": 4},
+        {"month": 12, "day": 12}
+    ],
+    "transfer_rules": [
+        {"on_dow": 6, "add_days": -1},
+        {"on_dow": 7, "add_days": 1}
+    ]
+}

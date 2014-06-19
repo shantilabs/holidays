@@ -56,7 +56,7 @@ def is_holiday(dt, country_code=None):
 
 
 def naive_is_holiday(dt, country_code=None):
-    return dt.isoweekday() > 5
+    return dt.isoweekday() in (6, 7)
 
 
 def iter_year(year):
