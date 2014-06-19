@@ -9,12 +9,16 @@
         {"month": 1,  "day": 7,  "since": 1992},
         {"month": 1,  "day": 8,  "since": 2013},
         {"month": 2,  "day": 23, "since": 2002},
-        {"month": 3,  "day": 8,  "since": 1971},
-        {"month": 5,  "day": 1,  "since": 1971},
-        {"month": 5,  "day": 2,  "since": 1971, "until": 2004},
-        {"month": 5,  "day": 9,  "since": 1971},
-        {"month": 12, "day": 6,  "since": 1992},
-        {"month": 11, "day": 4,  "since": 2005}
+        {"month": 3,  "day": 8,  "since": 1965},
+        {"month": 5,  "day": 1,  "since": 1917},
+        {"month": 5,  "day": 2,  "since": 1917, "until": 2004},
+        {"month": 5,  "day": 9,  "since": 1945, "until": 1947},
+        {"month": 5,  "day": 9,  "since": 1965},
+        {"month": 6,  "day": 12, "since": 1992},
+        {"month": 11, "day": 4,  "since": 2005},
+        {"month": 11, "day": 7,  "since": 1918, "until": 2005},
+        {"month": 11, "day": 8,  "since": 1918, "until": 1992},
+        {"month": 12, "day": 12, "since": 1994, "until": 2004}
     ],
     "transfer_rules": []
 }
