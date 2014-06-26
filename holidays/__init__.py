@@ -1,3 +1,4 @@
+import calendar
 import datetime
 import os
 
@@ -65,6 +66,8 @@ def iter_year(year):
     datetime.date(2000, 1, 1)
     >>> list(iter_year(2000))[-1]
     datetime.date(2000, 12, 31)
+    >>> len(list(iter_year(2014)))
+    365
     """
     dt = datetime.date(year, 1, 1)
     prev_dt = dt
@@ -88,12 +91,15 @@ def _read_data(country_code, year):
         country_code,
         year,
     )
-    return [
+    if not os.path.exists(path):
+        return None
+    result = [
         char == holiday_char
         for char in open(path).read()
         if char in valid_chars
-    ] if os.path.exists(path) else None
-
+    ]
+    assert len(result) == (366 if calendar.isleap(year) else 365), len(result)
+    return result
 
 def main():
     import sys
@@ -114,12 +120,13 @@ def main():
             if line:
                 sys.stdout.write('{0}\n'.format(line))
                 line = ''
-            sys.stdout.write('# {0}.{1}\n'.format(dt.month, dt.year))
+            sys.stdout.write('# {0}-{1}\n'.format(dt.month, dt.year))
             line = ' ' * (dt.isoweekday() - 1)
         line += holiday_char if is_holiday(dt) else workday_char
         if dt.isoweekday() >= 7:
             sys.stdout.write('{0}\n'.format(line))
             line = ''
+    sys.stdout.write('{0}\n'.format(line))
 
 
 if __name__ == '__main__':
