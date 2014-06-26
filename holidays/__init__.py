@@ -51,7 +51,7 @@ def is_holiday(dt, country_code=None):
         arr = _cache[key] = _read_data(*key)
 
     if arr:
-        return arr[dt.timetuple().tm_yday]
+        return arr[dt.timetuple().tm_yday - 1]
 
     return naive_is_holiday(dt, country_code)
 
