@@ -110,7 +110,7 @@ def main():
         sys.exit(0)
 
     if len(sys.argv) != 2:
-        sys.stdout.write('Usage: %s <year>\n')
+        sys.stdout.write('Usage: {} <year>\n'.format(sys.argv[0]))
         sys.exit(1)
     line = ''
     year = int(sys.argv[1])
