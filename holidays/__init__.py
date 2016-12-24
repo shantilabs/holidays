@@ -3,7 +3,7 @@ import datetime
 import os
 
 
-ONE_DAY = datetime.timedelta(days=1)
+ONE_DAY = datetime.timedelta(1)
 ONE_WEEK = datetime.timedelta(7)
 
 
@@ -100,6 +100,7 @@ def _read_data(country_code, year):
     ]
     assert len(result) == (366 if calendar.isleap(year) else 365), len(result)
     return result
+
 
 def main():
     import sys
